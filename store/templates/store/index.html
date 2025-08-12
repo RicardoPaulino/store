@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Store - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Store 🛒</h1>
+        <form method="POST" action="{% url 'store:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded">Sair</button>
+        </form>
+    </header>
+
+    <main class="flex-grow container mx-auto p-6">
+        <h2 class="text-xl font-semibold mb-6">Bem-vindo, {{ request.user.username }}!</h2>
+
+        <section class="bg-white p-6 rounded shadow">
+            <h3 class="text-lg font-medium mb-4">Produtos em destaque</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Exemplo de produtos estáticos -->
+                <div class="border rounded p-4 hover:shadow-lg transition cursor-pointer">
+                    <img src="https://via.placeholder.com/300x200" alt="Produto 1" class="mb-3 rounded" />
+                    <h4 class="font-semibold">Produto 1</h4>
+                    <p class="text-gray-600">Descrição breve do produto 1.</p>
+                    <p class="mt-2 font-bold">R$ 99,90</p>
+                </div>
+
+                <div class="border rounded p-4 hover:shadow-lg transition cursor-pointer">
+                    <img src="https://via.placeholder.com/300x200" alt="Produto 2" class="mb-3 rounded" />
+                    <h4 class="font-semibold">Produto 2</h4>
+                    <p class="text-gray-600">Descrição breve do produto 2.</p>
+                    <p class="mt-2 font-bold">R$ 149,90</p>
+                </div>
+
+                <div class="border rounded p-4 hover:shadow-lg transition cursor-pointer">
+                    <img src="https://via.placeholder.com/300x200" alt="Produto 3" class="mb-3 rounded" />
+                    <h4 class="font-semibold">Produto 3</h4>
+                    <p class="text-gray-600">Descrição breve do produto 3.</p>
+                    <p class="mt-2 font-bold">R$ 79,90</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 text-center p-4 text-sm text-gray-700">
+        &copy; 2025 Store - Todos os direitos reservados
+    </footer>
+
+</body>
+</html>
